@@ -21,6 +21,7 @@ mongoose.connect(url).then(()=>{
     })
 
     app.use('/auth',require('./routers/user_route'));
+    app.use('/order',require('./routers/order_router'));
 
 }).catch((error)=>console.log(error));
 
