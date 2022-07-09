@@ -34,11 +34,7 @@ router.post('/save',async(req,res)=>{
 });
 
 router.get('/getOrder',async(req,res)=>{
-    const userId = req.body.userId; 
-    if(!userId){
-        return res.status(400).send({message : "Fill all the boxes "});
-    }
-    const respond = await order.find({userId : userId});
+    const respond = await order.find({});
     return res.status(200).send(respond);
 });
 

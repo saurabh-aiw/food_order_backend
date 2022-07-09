@@ -35,15 +35,15 @@ const orderSchema = mongoose.Schema({
         require : true,
     },
     orderStatus : {
-        type : Boolean,
+        type : String,
         require : true,
     },
     paymentStatus : {
-        type : Boolean,
+        type : String,
         require : true,
     },
     deliveredStatus : {
-        type : Boolean,
+        type : String,
         require : true,
     }
     
