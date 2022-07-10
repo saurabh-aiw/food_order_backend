@@ -34,8 +34,14 @@ router.post('/save',async(req,res)=>{
 });
 
 router.get('/getOrder',async(req,res)=>{
-    const respond = await order.find({});
+    try {
+        const respond = await order.find({});
     return res.status(200).send(respond);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({message : "Server side error "});
+    }
+    
 });
 
 router.post('/updateOrder',async(req,res)=>{
@@ -49,7 +55,7 @@ router.post('/updateOrder',async(req,res)=>{
         return res.status(400).send({message: "there is no order"});
     }
 
-    await order.updateOne({id : orderId},
+    const sk = await order.updateOne({_id : orderId},
         {
             $set : {
                 deliveredStatus : true,
@@ -57,6 +63,7 @@ router.post('/updateOrder',async(req,res)=>{
         }
     );
 
+    console.log(sk);
     return res.status(200).send({message : "Updated sucessfully"});
 });
 
