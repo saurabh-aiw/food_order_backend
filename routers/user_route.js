@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.post("/register",async(req,res)=>{
     try {
-
         console.log(req.body);
         const {name,email,password} = req.body;
         
@@ -40,6 +39,7 @@ router.post("/register",async(req,res)=>{
 
 router.post('/login',async(req,res)=>{
     try {
+        console.log(req.body)
         const {email,password} = req.body;
 
         if(!email || !password){
